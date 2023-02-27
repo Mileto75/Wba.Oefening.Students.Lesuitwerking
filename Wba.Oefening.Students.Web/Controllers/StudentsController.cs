@@ -13,6 +13,27 @@ namespace Wba.Oefening.Students.Web.Controllers
         {
             return View();
         }
+        public IActionResult ShowAll() 
+        {
+            //get the students
+            //fill the model
+            StudentsShowAllViewModel studentsShowAllViewModel
+                = new StudentsShowAllViewModel();
+            studentsShowAllViewModel.Students
+                = _studentRepository
+                .Students().Select
+                (
+                    s => new StudentsDetailsViewModel
+                    {
+                        Id = s.Id,
+                        Course = s.Course,
+                        Name = $"{s.Firstname} {s.Lastname}"
+                    }
+                );
+            //pass the model
+            ViewBag.PageTitle = "Students";
+            return View(studentsShowAllViewModel);
+        }
         public IActionResult Details(int id) 
         {
             //get the data

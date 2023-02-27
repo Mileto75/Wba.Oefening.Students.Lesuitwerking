@@ -1,16 +1,17 @@
 ﻿@model StudentsDetailsViewModel
 
-<h1>Details</h1>
 <div class="row">
-    <div class="col col-4 mx-auto">
-        <div class="card">
-            <div class="card-title">
-                @Model.Name
-            </div>
-            <div class="card-subtitle">
-                @Model.Course
+    <div class="col-4 mx-auto">
+        <div class="card" style="width: 18rem;">
+            <!--tips: add .text-center,.text-right to the .card to change card text alignment-->
+            <div class="card-body">
+                <h5 class="card-title">Student</h5>
+                <h6 class="card-subtitle mb-2 text-muted">@Model.Name</h6>
+                <p class="card-text">@Model.Course</p>
+                <a href="/Students/ShowAll" class="btn btn-primary">Back</a>
             </div>
         </div>
     </div>
 </div>
+
 

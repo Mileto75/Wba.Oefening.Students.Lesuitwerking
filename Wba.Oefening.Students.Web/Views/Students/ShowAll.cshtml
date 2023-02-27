@@ -1,0 +1,29 @@
+﻿@model StudentsShowAllViewModel
+
+<h1>@ViewBag.PageTitle</h1>
+<div class="row">
+    <div class="col col-5 mx-auto">
+        <table class="table table-bordered table-hover table-responsive">
+            <tr>
+                <th>Student</th>
+                <th>Course</th>
+                <th>Action</th>
+            </tr>
+            @foreach(var student in Model.Students)
+            {
+                <tr>
+                    <td>
+                    <a href="/Students/Details/@student.Id">
+                        @student.Name
+                        </a>
+                    </td>
+                    <td>@student.Course</td>
+                    <td>
+                        <a href="/Students/Details/@student.Id" class="btn btn-outline-info">Edit</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
